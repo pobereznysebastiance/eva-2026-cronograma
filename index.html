@@ -266,11 +266,12 @@
             box-shadow: 0 0 8px rgba(255, 0, 128, 0.4);
         }
 
+        /* Caza de selección de alumnos ampliada */
         .students-box {
-            max-height: 200px;
+            max-height: 320px;
             overflow-y: auto;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 0, 128, 0.3);
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 0, 128, 0.4);
             border-radius: 8px;
             padding: 12px;
             display: flex;
@@ -281,16 +282,24 @@
         .student-option {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 0.85rem;
+            gap: 12px;
+            font-size: 0.9rem;
             color: var(--text-main);
             cursor: pointer;
+            padding: 6px 8px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .student-option:hover {
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .student-option input[type="checkbox"] {
             accent-color: var(--accent-pink);
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
         }
 
         .btn-location {
@@ -337,7 +346,6 @@
             opacity: 0.9;
         }
 
-        /* Cuadro Asistente de Envío Secuencial */
         .send-status-box {
             display: none;
             margin-top: 18px;
@@ -365,11 +373,6 @@
             cursor: pointer;
             font-size: 0.9rem;
             width: 100%;
-            transition: transform 0.1s;
-        }
-
-        .btn-next-send:active {
-            transform: scale(0.98);
         }
 
         .studios-grid, .night-grid, .apps-grid, .talks-grid {
@@ -721,9 +724,11 @@
 
             <div class="form-group">
                 <label>1. Buscar y seleccionar integrantes del grupo:</label>
-                <input type="text" id="studentSearch" class="form-input" placeholder="Escribe para buscar un nombre..." onkeyup="filterStudents()" style="margin-bottom: 8px;">
+                <input type="text" id="studentSearch" class="form-input" placeholder="Escribe para buscar un alumno por nombre..." onkeyup="filterStudents()" style="margin-bottom: 8px;">
+                
+                <!-- LISTADO COMPLETO DE ALUMNOS CON CHECKBOXES -->
                 <div class="students-box" id="studentsList">
-                    <!-- Lista generada automáticamente -->
+                    <!-- Rellenado dinámicamente desde el Array Javascript -->
                 </div>
             </div>
 
@@ -773,4 +778,365 @@
                         <li>Narrativa y pacing del proyecto</li>
                     </ul>
                     <div class="btn-group">
-                        <a href="
+                        <a href="https://comfygamescomfy.wixsite.com/comfy-games" target="_blank" class="social-btn">Sitio Web</a>
+                        <a href="https://store.steampowered.com/app/4095460/Quantum_Echoes/" target="_blank" class="social-btn">Steam</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="studio-card">
+                <img src="honeymoon.png" alt="Honeymoon to Hell" class="studio-img">
+                <div class="studio-content">
+                    <span class="studio-name">Creative D-Ploy</span>
+                    <h3 class="game-title">Honeymoon to Hell</h3>
+                    <ul class="topics-list">
+                        <li>Dirección de arte y paleta de color</li>
+                        <li>Mecánicas de combate roguelite</li>
+                    </ul>
+                    <div class="btn-group">
+                        <a href="https://www.creativedploy.com/#projects" target="_blank" class="social-btn">Sitio Web</a>
+                        <a href="https://www.instagram.com/creativedploy/" target="_blank" class="social-btn">Instagram</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="studio-card">
+                <img src="mix.png" alt="MIX To Be Forgotten" class="studio-img">
+                <div class="studio-content">
+                    <span class="studio-name">Abstract Digital</span>
+                    <h3 class="game-title">MIX To Be Forgotten</h3>
+                    <ul class="topics-list">
+                        <li>Estilo visual y modelado 3D estilizado</li>
+                        <li>Feedback visual e interfaz de usuario</li>
+                    </ul>
+                    <div class="btn-group">
+                        <a href="https://www.instagram.com/abstract_dw/?hl=es" target="_blank" class="social-btn">Instagram</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="studio-card">
+                <img src="parasomnia.png" alt="Parasomnia: No REM" class="studio-img">
+                <div class="studio-content">
+                    <span class="studio-name">BELS Games</span>
+                    <h3 class="game-title">Parasomnia: No REM</h3>
+                    <ul class="topics-list">
+                        <li>Ambientación de terror e iluminación</li>
+                        <li>Diseño de sonido y atmósfera inmersiva</li>
+                    </ul>
+                    <div class="btn-group">
+                        <a href="https://belsgames.com" target="_blank" class="social-btn">Sitio Web</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="studio-card">
+                <img src="gaucho.png" alt="Gaucho: Subway Escape" class="studio-img">
+                <div class="studio-content">
+                    <span class="studio-name">Symbio Studio</span>
+                    <h3 class="game-title">Gaucho: Subway Escape</h3>
+                    <ul class="topics-list">
+                        <li>Diseño de personajes 2D/3D</li>
+                        <li>Mecánicas de sigilo y escape</li>
+                    </ul>
+                    <div class="btn-group">
+                        <a href="https://www.symbiostudio.dev/games" target="_blank" class="social-btn">Sitio Web</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CHARLAS Y CONFERENCIAS SUGERIDAS -->
+        <h2 class="section-title">Charlas & Conferencias Recomendadas (EVA 2026)</h2>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 18px;">
+            Ejes temáticos clave sugeridos para las cátedras de Diseño Multimedia, Videojuegos y Animación durante las jornadas:
+        </p>
+
+        <div class="talks-grid" style="margin-bottom: 35px;">
+
+            <div class="talk-card">
+                <div class="talk-content">
+                    <span class="talk-tag">Miércoles 21/10 – Sede BIG</span>
+                    <h3 class="talk-title">Unity Dev Day & Talent Day</h3>
+                    <ul class="topics-list">
+                        <li>Optimización técnica en motores de juego.</li>
+                        <li>Revisiones de portfolios y perfiles profesionales.</li>
+                        <li>Casos de estudio de desarrollo independiente local.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="talk-card">
+                <div class="talk-content">
+                    <span class="talk-tag">Jueves 22/10 – BAFerial</span>
+                    <h3 class="talk-title">EVA Talks & Negocios B2B</h3>
+                    <ul class="topics-list">
+                        <li>Producción general y gestión de proyectos.</li>
+                        <li>Financiamiento e inversión para estudios indie.</li>
+                        <li>Rondas de negocios e inserción internacional.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="talk-card">
+                <div class="talk-content">
+                    <span class="talk-tag">Viernes 23/10 – BAFerial</span>
+                    <h3 class="talk-title">Arte, UI/UX & Programación</h3>
+                    <ul class="topics-list">
+                        <li>Dirección de arte visual y animación 2D/3D.</li>
+                        <li>Diseño de interfaz de usuario y experiencia (UI/UX).</li>
+                        <li>Programación avanzada y arquitectura de juego.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECCIÓN: APPS RECOMENDADAS PARA MOVERSE EN CABA -->
+        <h2 class="section-title">Apps Recomendadas para Moverse en CABA</h2>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 18px;">
+            Descargá estas aplicaciones clave en tu celular para gestionar tu saldo SUBE, consultar colectivos, subtes y transporte en CABA:
+        </p>
+
+        <div class="apps-grid" style="margin-bottom: 35px;">
+            
+            <!-- SUBE (App Oficial / Web Platform iOS) -->
+            <div class="app-card">
+                <div class="app-content">
+                    <span class="app-tag">Tarjeta & Transporte</span>
+                    <h3 class="app-title">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Tarjeta_SUBE_logo.svg" alt="SUBE" class="app-logo-official">
+                        App SUBE
+                    </h3>
+                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px;">Android: App Oficial. iOS: Gestión, consulta y saldo directo desde la Plataforma Web.</p>
+                    <div class="btn-group">
+                        <a href="https://play.google.com/store/apps/details?id=ar.gob.nacion.sube" target="_blank" class="social-btn" style="background: rgba(0, 242, 254, 0.15); border-color: var(--accent-cyan); color: var(--accent-cyan);">Android</a>
+                        <a href="https://mi.sube.gob.ar" target="_blank" class="social-btn">iOS (Web SUBE)</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Moovit -->
+            <div class="app-card">
+                <div class="app-content">
+                    <span class="app-tag">Colectivos & Trenes</span>
+                    <h3 class="app-title">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Moovit_logo.svg" alt="Moovit" class="app-logo-official">
+                        Moovit / BA Cómo Llego
+                    </h3>
+                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px;">Horarios en tiempo real, mapa interactivo de colectivos y alertas de demoras.</p>
+                    <div class="btn-group">
+                        <a href="https://play.google.com/store/apps/details?id=com.tranzmate" target="_blank" class="social-btn" style="background: rgba(0, 242, 254, 0.15); border-color: var(--accent-cyan); color: var(--accent-cyan);">Android</a>
+                        <a href="https://apps.apple.com/ar/app/moovit-rutas-en-vivo-y-subte/id498477945" target="_blank" class="social-btn">iOS</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BA Subte (Android) / Moovit Subte (iOS) -->
+            <div class="app-card">
+                <div class="app-content">
+                    <span class="app-tag">Red de Subte CABA</span>
+                    <h3 class="app-title">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Subte_Buenos_Aires_logo.svg" alt="BA Subte" class="app-logo-official">
+                        BA Subte
+                    </h3>
+                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px;">Estado en vivo de las líneas A-H, alertas de interrupciones, combinaciones y mapa.</p>
+                    <div class="btn-group">
+                        <a href="https://play.google.com/store/apps/details?id=ar.gob.buenosaires.basubte" target="_blank" class="social-btn" style="background: rgba(0, 242, 254, 0.15); border-color: var(--accent-cyan); color: var(--accent-cyan);">Android</a>
+                        <a href="https://apps.apple.com/ar/app/moovit-rutas-en-vivo-y-subte/id498477945" target="_blank" class="social-btn">iOS (Moovit Subte)</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Citymapper -->
+            <div class="app-card">
+                <div class="app-content">
+                    <span class="app-tag">Rutas & Mapas CABA</span>
+                    <h3 class="app-title">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Citymapper_logo.svg" alt="Citymapper" class="app-logo-official">
+                        Citymapper
+                    </h3>
+                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px;">Planificador de rutas multitransporte, frecuencias y navegación paso a paso.</p>
+                    <div class="btn-group">
+                        <a href="https://play.google.com/store/apps/details?id=com.citymapper.app.release" target="_blank" class="social-btn" style="background: rgba(0, 242, 254, 0.15); border-color: var(--accent-cyan); color: var(--accent-cyan);">Android</a>
+                        <a href="https://apps.apple.com/ar/app/citymapper/id469463298" target="_blank" class="social-btn">iOS</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Uber / Cabify -->
+            <div class="app-card">
+                <div class="app-content">
+                    <span class="app-tag">Transporte Privado</span>
+                    <h3 class="app-title">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.svg" alt="Uber" class="app-logo-official" style="filter: invert(1);">
+                        Uber / Cabify
+                    </h3>
+                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px;">Movilidad recomendada para traslados en grupos durante la noche.</p>
+                    <div class="btn-group">
+                        <a href="https://play.google.com/store/apps/details?id=com.ubercab" target="_blank" class="social-btn" style="background: rgba(0, 242, 254, 0.15); border-color: var(--accent-cyan); color: var(--accent-cyan);">Android</a>
+                        <a href="https://apps.apple.com/ar/app/uber-pide-un-viaje/id368677368" target="_blank" class="social-btn">iOS</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>Coordinación Académica – Prof. Sebastián Poberezny</p>
+            <p>Exposición de Videojuegos Argentina 2026</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Nómina oficial completa de los 56 alumnos
+        const studentsList = [
+            "Acevedo Jose Julian", "Alegre Lionel Nicolas", "Alvarenga Karen", "Alvarez Jose Ignacio",
+            "Aquino Damián Exequiel", "Barrios Servin Gimena Paola", "Becerra María Paula", "Benjamin Rolón",
+            "Botello Capará Abril María", "Bruno Sosa Maia Aylen", "Claudio Ezequiel Martinez Borda",
+            "Clemente Rolon Joaquin Daniel", "Cochia Lucia", "Couceiro Carlos Adolfo", "Couceiro Manuel",
+            "De Greef Juan Martin", "Diaz Moroni Melanie Nain", "Di Rado Franco", "Esquivel Maria Jimena",
+            "Flores Leliur Bárbara Andrea", "Gallardo Lucas Gabriel", "Gimenez Guadalupe", "Godoy Hector Santiago",
+            "Gómez Codutti Lucas", "Gomez Juan Diego", "Gualtieri Fiorella Agostina", "Livia Acosta José Martin",
+            "Lopez Carlos Sebastian", "Macarini Renzo", "Margaria Branz Maria Pilar", "Margaria Gimena",
+            "Mariasch David", "Martina Natali Vega", "Martinez Quiñones María de los Angeles", "Martins Delfina",
+            "Matias Alejandro Tomaszuk", "Maximiliano Hernán Silvero Zacarías", "Mia Nazaret Reijers",
+            "Montiel Fogar Thiago Nahuel", "Nessier Tobias", "Parra Esteban", "Pérez Velazco Ariadna Carolina",
+            "Poberezny Sebastián", "Prieto Fernandez Enzo Gabriel", "Radovancic Mijail Ierko", "Rigoni Sappa Oriana Aylen",
+            "Romero Delfina", "Rossi Aaron", "Sánchez Ojeda Matías Rogelio", "Silva Franco Dario",
+            "Sosa Fernández Lucía Magali", "Tubiana Giuliano André", "Vallone Wolfel Agostina", "Veron Escobar Carlos de Jesus",
+            "Vicedo Catalina", "Zabala Meza Eliana"
+        ];
+
+        // Lista ordenada de contactos de la coordinación
+        const contacts = [
+            { name: "Prof. Sebastián", phone: "5493624547262" },
+            { name: "Julieta (Ivania Turismo)", phone: "5493624596240" },
+            { name: "Prof. David", phone: "5493624778750" }
+        ];
+
+        let currentStep = 0;
+        let generatedMessage = "";
+
+        // Genera la lista interactiva con checkboxes en el DOM
+        function renderStudents() {
+            const container = document.getElementById("studentsList");
+            container.innerHTML = "";
+            studentsList.forEach((student, index) => {
+                const label = document.createElement("label");
+                label.className = "student-option";
+                label.innerHTML = `
+                    <input type="checkbox" value="${student}" class="student-checkbox" id="std_${index}">
+                    <span>${student}</span>
+                `;
+                container.appendChild(label);
+            });
+        }
+
+        // Buscador dinámico por coincidencia
+        function filterStudents() {
+            const query = document.getElementById("studentSearch").value.toLowerCase();
+            const options = document.querySelectorAll(".student-option");
+            options.forEach(option => {
+                const text = option.textContent.toLowerCase();
+                option.style.display = text.includes(query) ? "flex" : "none";
+            });
+        }
+
+        function getLocation() {
+            const locInput = document.getElementById("locationUrl");
+            if (navigator.geolocation) {
+                locInput.value = "Obteniendo coordenadas...";
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        locInput.value = `https://maps.google.com/?q=${lat},${lon}`;
+                    },
+                    (error) => {
+                        alert("No se pudo obtener la ubicación automáticamente. Verifica los permisos de GPS.");
+                        locInput.value = "";
+                    }
+                );
+            } else {
+                alert("La geolocalización no está soportada en este navegador.");
+            }
+        }
+
+        function buildMessage() {
+            const selected = Array.from(document.querySelectorAll(".student-checkbox:checked")).map(cb => cb.value);
+            const destination = document.getElementById("destination").value.trim();
+            const returnTime = document.getElementById("returnTime").value.trim();
+            const locationUrl = document.getElementById("locationUrl").value.trim();
+
+            if (selected.length === 0) {
+                alert("Por favor selecciona al menos a una persona del grupo.");
+                return null;
+            }
+            if (!destination) {
+                alert("Por favor ingresa el destino o actividad proyectada.");
+                return null;
+            }
+            if (!returnTime) {
+                alert("Por favor indica el horario estimado de regreso.");
+                return null;
+            }
+
+            let message = `🚨 *AVISO DE PLAN ALTERNATIVO - VIAJE EVA 2026*\n\n`;
+            message += `👥 *Integrantes del grupo (${selected.length}):*\n`;
+            selected.forEach(name => {
+                message += `• ${name}\n`;
+            });
+            message += `\n📍 *Destino / Actividad:* ${destination}\n`;
+            message += `⏰ *Horario est. de regreso:* ${returnTime}\n`;
+            
+            if (locationUrl && !locationUrl.includes("Obteniendo")) {
+                message += `🗺️ *Punto de partida (GPS):* ${locationUrl}\n`;
+            }
+
+            message += `\n📍 *Recordatorio:* Al abrirse esta conversación, por favor presiona el botón de adjuntar (+ o clip) en WhatsApp y selecciona "Ubicación en tiempo real" para que la coordinación pueda seguir el recorrido en movimiento.\n\n`;
+            message += `_Enviado desde la Web Oficial de la Delegación._`;
+            return message;
+        }
+
+        function openChat(phone) {
+            const encodedUrl = `https://wa.me/${phone}?text=${encodeURIComponent(generatedMessage)}`;
+            window.location.href = encodedUrl;
+        }
+
+        function startSequentialSending() {
+            generatedMessage = buildMessage();
+            if (!generatedMessage) return;
+
+            document.getElementById("startBtn").style.display = "none";
+            document.getElementById("statusBox").style.display = "block";
+
+            currentStep = 1;
+            document.getElementById("statusText").innerText = `Paso 1 de 3: Enviando reporte al Prof. Sebastián...`;
+            document.getElementById("nextSendBtn").innerText = `Enviar copia a ${contacts[1].name}`;
+            
+            openChat(contacts[0].phone);
+        }
+
+        function sendNextStep() {
+            if (currentStep === 1) {
+                currentStep = 2;
+                document.getElementById("statusText").innerText = `Paso 2 de 3: Copia enviada a Julieta.`;
+                document.getElementById("nextSendBtn").innerText = `Enviar copia al ${contacts[2].name}`;
+                openChat(contacts[1].phone);
+            } else if (currentStep === 2) {
+                currentStep = 3;
+                document.getElementById("statusText").innerText = `Paso 3 de 3: Reporte notificado a toda la coordinación.`;
+                document.getElementById("nextSendBtn").style.display = "none";
+                openChat(contacts[2].phone);
+            }
+        }
+
+        // Carga la lista en pantalla tan pronto como carga la página
+        document.addEventListener("DOMContentLoaded", renderStudents);
+    </script>
+
+</body>
+</html>
