@@ -209,7 +209,93 @@
             width: 100%;
         }
 
-        /* Studios & Nightlife Grid */
+        /* Formulario Plan Alternativo */
+        .plan-card {
+            background: var(--bg-card);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 35px;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-card);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: var(--accent-cyan);
+        }
+
+        .students-box {
+            max-height: 200px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--border-card);
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .student-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            cursor: pointer;
+        }
+
+        .student-option input[type="checkbox"] {
+            accent-color: var(--accent-cyan);
+            width: 16px;
+            height: 16px;
+        }
+
+        .btn-whatsapp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: #fff;
+            font-weight: 700;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .btn-whatsapp:hover {
+            opacity: 0.9;
+        }
+
+        /* Grid de Estudios y Noches */
         .studios-grid, .night-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -343,6 +429,36 @@
             <a href="https://share.google/ctQohSfyptkFnvaeU" target="_blank" class="btn-map">
                 🗺️ Ver en Google Maps
             </a>
+        </div>
+
+        <!-- Módulo de Plan Alternativo -->
+        <h2 class="section-title">Aviso de Plan Alternativo / Separación del Grupo</h2>
+        <div class="plan-card">
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 16px;">
+                Si vas a realizar un recorrido, paseo o actividad fuera del itinerario general con otros compañeros, por favor completa este formulario antes de salir para notificar a la coordinación:
+            </p>
+
+            <div class="form-group">
+                <label>1. Buscar y seleccionar integrantes del grupo:</label>
+                <input type="text" id="studentSearch" class="form-input" placeholder="Escribe para buscar un nombre..." onkeyup="filterStudents()" style="margin-bottom: 8px;">
+                <div class="students-box" id="studentsList">
+                    <!-- Lista generada automáticamente -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="destination">2. Destino o Actividad proyectada:</label>
+                <input type="text" id="destination" class="form-input" placeholder="Ej: Paseo por Puerto Madero / Cena en Palermo">
+            </div>
+
+            <div class="form-group">
+                <label for="returnTime">3. Horario estimado de regreso al hotel:</label>
+                <input type="text" id="returnTime" class="form-input" placeholder="Ej: 23:30 hs">
+            </div>
+
+            <button type="button" onclick="sendWhatsAppNotice()" class="btn-whatsapp">
+                📱 🚨 Enviar Reporte por WhatsApp
+            </button>
         </div>
 
         <!-- Cronograma -->
@@ -628,6 +744,85 @@
         </footer>
 
     </div>
+
+    <!-- Script de Lógica para el Reporte de Plan Alternativo -->
+    <script>
+        const studentsList = [
+            "Acevedo Jose Julian", "Alegre Lionel Nicolas", "Alvarenga Karen", "Alvarez Jose Ignacio",
+            "Aquino Damián Exequiel", "Barrios Servin Gimena Paola", "Becerra María Paula", "Benjamin Rolón",
+            "Botello Capará Abril María", "Bruno Sosa Maia Aylen", "Claudio Ezequiel Martinez Borda",
+            "Clemente Rolon Joaquin Daniel", "Cochia Lucia", "Couceiro Carlos Adolfo", "Couceiro Manuel",
+            "De Greef Juan Martin", "Diaz Moroni Melanie Nain", "Di Rado Franco", "Esquivel Maria Jimena",
+            "Flores Leliur Bárbara Andrea", "Gallardo Lucas Gabriel", "Gimenez Guadalupe", "Godoy Hector Santiago",
+            "Gómez Codutti Lucas", "Gomez Juan Diego", "Gualtieri Fiorella Agostina", "Livia Acosta José Martin",
+            "Lopez Carlos Sebastian", "Macarini Renzo", "Margaria Branz Maria Pilar", "Margaria Gimena",
+            "Mariasch David", "Martina Natali Vega", "Martinez Quiñones María de los Angeles", "Martins Delfina",
+            "Matias Alejandro Tomaszuk", "Maximiliano Hernán Silvero Zacarías", "Mia Nazaret Reijers",
+            "Montiel Fogar Thiago Nahuel", "Nessier Tobias", "Parra Esteban", "Pérez Velazco Ariadna Carolina",
+            "Poberezny Sebastián", "Prieto Fernandez Enzo Gabriel", "Radovancic Mijail Ierko", "Rigoni Sappa Oriana Aylen",
+            "Romero Delfina", "Rossi Aaron", "Sánchez Ojeda Matías Rogelio", "Silva Franco Dario",
+            "Sosa Fernández Lucía Magali", "Tubiana Giuliano André", "Vallone Wolfel Agostina", "Veron Escobar Carlos de Jesus",
+            "Vicedo Catalina", "Zabala Meza Eliana"
+        ];
+
+        function renderStudents() {
+            const container = document.getElementById("studentsList");
+            container.innerHTML = "";
+            studentsList.forEach((student, index) => {
+                const label = document.createElement("label");
+                label.className = "student-option";
+                label.innerHTML = `
+                    <input type="checkbox" value="${student}" class="student-checkbox">
+                    <span>${student}</span>
+                `;
+                container.appendChild(label);
+            });
+        }
+
+        function filterStudents() {
+            const query = document.getElementById("studentSearch").value.toLowerCase();
+            const options = document.querySelectorAll(".student-option");
+            options.forEach(option => {
+                const text = option.textContent.toLowerCase();
+                option.style.display = text.includes(query) ? "flex" : "none";
+            });
+        }
+
+        function sendWhatsAppNotice() {
+            const selected = Array.from(document.querySelectorAll(".student-checkbox:checked")).map(cb => cb.value);
+            const destination = document.getElementById("destination").value.trim();
+            const returnTime = document.getElementById("returnTime").value.trim();
+
+            if (selected.length === 0) {
+                alert("Por favor selecciona al menos a una persona del grupo.");
+                return;
+            }
+            if (!destination) {
+                alert("Por favor ingresa el destino o actividad proyectada.");
+                return;
+            }
+            if (!returnTime) {
+                alert("Por favor indica el horario estimado de regreso.");
+                return;
+            }
+
+            let message = `🚨 *AVISO DE PLAN ALTERNATIVO - VIAJE EVA 2026*\n\n`;
+            message += `👥 *Integrantes del grupo (${selected.length}):*\n`;
+            selected.forEach(name => {
+                message += `• ${name}\n`;
+            });
+            message += `\n📍 *Destino / Actividad:* ${destination}\n`;
+            message += `⏰ *Horario est. de regreso:* ${returnTime}\n\n`;
+            message += `_Enviado desde la Web Oficial de la Delegación._`;
+
+            const phone = "5493624547262";
+            const encodedUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.open(encodedUrl, "_blank");
+        }
+
+        // Inicializar la lista al cargar la página
+        document.addEventListener("DOMContentLoaded", renderStudents);
+    </script>
 
 </body>
 </html>
