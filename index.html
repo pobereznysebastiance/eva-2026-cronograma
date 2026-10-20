@@ -273,6 +273,27 @@
             height: 16px;
         }
 
+        .btn-location {
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 10px;
+            transition: all 0.2s;
+        }
+
+        .btn-location:hover {
+            background: var(--accent-cyan);
+            color: #000;
+        }
+
         .btn-whatsapp {
             display: flex;
             align-items: center;
@@ -431,36 +452,6 @@
             </a>
         </div>
 
-        <!-- Módulo de Plan Alternativo -->
-        <h2 class="section-title">Aviso de Plan Alternativo / Separación del Grupo</h2>
-        <div class="plan-card">
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 16px;">
-                Si vas a realizar un recorrido, paseo o actividad fuera del itinerario general con otros compañeros, por favor completa este formulario antes de salir para notificar a la coordinación:
-            </p>
-
-            <div class="form-group">
-                <label>1. Buscar y seleccionar integrantes del grupo:</label>
-                <input type="text" id="studentSearch" class="form-input" placeholder="Escribe para buscar un nombre..." onkeyup="filterStudents()" style="margin-bottom: 8px;">
-                <div class="students-box" id="studentsList">
-                    <!-- Lista generada automáticamente -->
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="destination">2. Destino o Actividad proyectada:</label>
-                <input type="text" id="destination" class="form-input" placeholder="Ej: Paseo por Puerto Madero / Cena en Palermo">
-            </div>
-
-            <div class="form-group">
-                <label for="returnTime">3. Horario estimado de regreso al hotel:</label>
-                <input type="text" id="returnTime" class="form-input" placeholder="Ej: 23:30 hs">
-            </div>
-
-            <button type="button" onclick="sendWhatsAppNotice()" class="btn-whatsapp">
-                📱 🚨 Enviar Reporte por WhatsApp
-            </button>
-        </div>
-
         <!-- Cronograma -->
         <h2 class="section-title">Cronograma Oficial de Actividades</h2>
         <div class="timeline">
@@ -597,7 +588,7 @@
         <h2 class="section-title">Información Importante & Gastos</h2>
         <div class="day-card" style="margin-bottom: 25px;">
             <ul class="topics-list" style="margin-bottom: 0;">
-                <li><strong>Alojamiento:</strong> El hotel incluye únicamente el desayuno.</li>
+                <li><strong>Alojamiento:</strong> El hotel includes únicamente el desayuno.</li>
                 <li><strong>Presupuesto estimado de comidas:</strong> Se calcula entre $15.000 y $35.000 por persona por menú (almuerzo o cena), según la opción elegida.</li>
                 <li><strong>Transporte diario:</strong> El colectivo de la empresa realiza los traslados diarios de ida y vuelta entre el hotel y los eventos.</li>
             </ul>
@@ -607,7 +598,7 @@
         <h2 class="section-title">Salida Nocturna (Viernes 23/10) – ¡Día del Diseñador Gráfico! 🎉</h2>
         <p style="color: var(--text-muted); margin-bottom: 20px;">Tres alternativas para festejar nuestra última noche en CABA:</p>
 
-        <div class="night-grid">
+        <div class="night-grid" style="margin-bottom: 35px;">
 
             <div class="night-card">
                 <div class="night-content">
@@ -653,6 +644,44 @@
                 </div>
             </div>
 
+        </div>
+
+        <!-- Módulo de Plan Alternativo con Geolocalización -->
+        <h2 class="section-title">Aviso de Plan Alternativo / Separación del Grupo</h2>
+        <div class="plan-card">
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 16px;">
+                Si vas a realizar un recorrido, paseo o salida fuera del itinerario general con otros compañeros, por favor completa este formulario antes de salir para notificar a la coordinación:
+            </p>
+
+            <div class="form-group">
+                <label>1. Buscar y seleccionar integrantes del grupo:</label>
+                <input type="text" id="studentSearch" class="form-input" placeholder="Escribe para buscar un nombre..." onkeyup="filterStudents()" style="margin-bottom: 8px;">
+                <div class="students-box" id="studentsList">
+                    <!-- Lista generada automáticamente -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="destination">2. Destino o Actividad proyectada:</label>
+                <input type="text" id="destination" class="form-input" placeholder="Ej: Paseo por Puerto Madero / Cena en Palermo">
+            </div>
+
+            <div class="form-group">
+                <label for="returnTime">3. Horario estimado de regreso al hotel:</label>
+                <input type="text" id="returnTime" class="form-input" placeholder="Ej: 23:30 hs">
+            </div>
+
+            <div class="form-group">
+                <label>4. Ubicación actual (Opcional pero recomendado):</label>
+                <button type="button" class="btn-location" onclick="getLocation()">
+                    📍 Adjuntar mi ubicación actual (GPS)
+                </button>
+                <input type="text" id="locationUrl" class="form-input" placeholder="El enlace de tu ubicación aparecerá aquí..." readonly>
+            </div>
+
+            <button type="button" onclick="sendWhatsAppNotice()" class="btn-whatsapp">
+                📱 🚨 Enviar Reporte por WhatsApp
+            </button>
         </div>
 
         <!-- Estudios Indie -->
@@ -745,7 +774,7 @@
 
     </div>
 
-    <!-- Script de Lógica para el Reporte de Plan Alternativo -->
+    <!-- Script de Lógica para el Reporte de Plan Alternativo y Geolocalización -->
     <script>
         const studentsList = [
             "Acevedo Jose Julian", "Alegre Lionel Nicolas", "Alvarenga Karen", "Alvarez Jose Ignacio",
@@ -788,10 +817,31 @@
             });
         }
 
+        function getLocation() {
+            const locInput = document.getElementById("locationUrl");
+            if (navigator.geolocation) {
+                locInput.value = "Obteniendo coordenadas...";
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        locInput.value = `https://maps.google.com/?q=${lat},${lon}`;
+                    },
+                    (error) => {
+                        alert("No se pudo obtener la ubicación automáticamente. Verifica los permisos de GPS de tu navegador.");
+                        locInput.value = "";
+                    }
+                );
+            } else {
+                alert("La geolocalización no está soportada en este navegador.");
+            }
+        }
+
         function sendWhatsAppNotice() {
             const selected = Array.from(document.querySelectorAll(".student-checkbox:checked")).map(cb => cb.value);
             const destination = document.getElementById("destination").value.trim();
             const returnTime = document.getElementById("returnTime").value.trim();
+            const locationUrl = document.getElementById("locationUrl").value.trim();
 
             if (selected.length === 0) {
                 alert("Por favor selecciona al menos a una persona del grupo.");
@@ -812,8 +862,13 @@
                 message += `• ${name}\n`;
             });
             message += `\n📍 *Destino / Actividad:* ${destination}\n`;
-            message += `⏰ *Horario est. de regreso:* ${returnTime}\n\n`;
-            message += `_Enviado desde la Web Oficial de la Delegación._`;
+            message += `⏰ *Horario est. de regreso:* ${returnTime}\n`;
+            
+            if (locationUrl && !locationUrl.includes("Obteniendo")) {
+                message += `🗺️ *Ubicación GPS actual:* ${locationUrl}\n`;
+            }
+
+            message += `\n_Enviado desde la Web Oficial de la Delegación._`;
 
             const phone = "5493624547262";
             const encodedUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
