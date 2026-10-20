@@ -135,6 +135,7 @@
             padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
+            font-size: 0.85rem;
         }
 
         .timeline {
@@ -177,7 +178,7 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 12px;
         }
 
         .event-item {
@@ -189,24 +190,46 @@
         .event-time {
             color: var(--accent-pink);
             font-weight: 600;
-            min-width: 95px;
+            min-width: 100px;
             font-family: 'Space Grotesk', sans-serif;
         }
 
-        .studios-grid {
+        .event-desc-box {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            width: 100%;
+        }
+
+        /* Studios & Nightlife Grid */
+        .studios-grid, .night-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 16px;
         }
 
-        .studio-card {
+        .studio-card, .night-card {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
             border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .studio-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-card);
+        }
+
+        .studio-content, .night-content {
             padding: 18px;
         }
 
-        .studio-name {
+        .studio-name, .night-tag {
             font-size: 0.8rem;
             color: var(--accent-cyan);
             text-transform: uppercase;
@@ -214,7 +237,7 @@
             font-weight: 700;
         }
 
-        .game-title {
+        .game-title, .night-title {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.2rem;
             color: #fff;
@@ -225,6 +248,7 @@
             list-style: none;
             font-size: 0.85rem;
             color: var(--text-muted);
+            margin-bottom: 15px;
         }
 
         .topics-list li {
@@ -240,6 +264,36 @@
             left: 0;
         }
 
+        .btn-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.2s;
+            flex: 1;
+            text-align: center;
+        }
+
+        .social-btn:hover {
+            background: var(--accent-purple);
+            color: #fff;
+            border-color: var(--accent-purple);
+        }
+
         footer {
             margin-top: 50px;
             text-align: center;
@@ -253,7 +307,7 @@
             h1 { font-size: 1.7rem; }
             .hotel-card { flex-direction: column; align-items: flex-start; }
             .btn-map { width: 100%; justify-content: center; }
-            .event-item { flex-direction: column; gap: 2px; }
+            .event-item { flex-direction: column; gap: 4px; }
         }
     </style>
 </head>
@@ -267,6 +321,7 @@
 
     <div class="container">
 
+        <!-- Hotel -->
         <div class="hotel-card">
             <div class="hotel-info">
                 <h3>📍 O2 Hotel Buenos Aires</h3>
@@ -277,22 +332,38 @@
             </a>
         </div>
 
+        <!-- Cronograma -->
         <h2 class="section-title">Cronograma Oficial de Actividades</h2>
         <div class="timeline">
 
+            <!-- Martes 20/10 -->
             <div class="day-card">
                 <div class="day-header">
                     <span class="day-title">Martes 20/10 – Salida</span>
-                    <span class="day-location">Corrientes → CABA</span>
+                    <span class="day-location">Resistencia / Corrientes → CABA</span>
                 </div>
                 <ul class="event-list">
                     <li class="event-item">
-                        <span class="event-time">Horario a conf.</span>
-                        <span class="event-desc">Salida en colectivo desde el Campus UCP Corrientes con destino a Buenos Aires.</span>
+                        <span class="event-time">19:15 hs</span>
+                        <span class="event-desc-box">
+                            <strong>1° Punto de Encuentro: Terminal de Resistencia</strong>
+                            <span>Presentarse 15 minutos antes. Salida del colectivo a las 19:30 hs.</span>
+                        </span>
+                    </li>
+                    <li class="event-item">
+                        <span class="event-time">20:00 hs</span>
+                        <span class="event-desc-box">
+                            <strong>2° Punto de Encuentro: Plaza La Cruz (Corrientes)</strong>
+                            <span>Llegada aproximada a las 20:00 hs para el ascenso del contingente de Corrientes.</span>
+                            <a href="https://maps.app.goo.gl/oZVTDsJXFTLeB1mGA?g_st=aw" target="_blank" class="btn-map" style="margin-top: 6px; width: fit-content;">
+                                📍 Ubicación Plaza La Cruz (Google Maps)
+                            </a>
+                        </span>
                     </li>
                 </ul>
             </div>
 
+            <!-- Miércoles 21/10 -->
             <div class="day-card">
                 <div class="day-header">
                     <span class="day-title">Miércoles 21/10 – Sede BIG</span>
@@ -318,6 +389,7 @@
                 </ul>
             </div>
 
+            <!-- Jueves 22/10 -->
             <div class="day-card">
                 <div class="day-header">
                     <span class="day-title">Jueves 22/10 – Sede BAFerial</span>
@@ -347,6 +419,7 @@
                 </ul>
             </div>
 
+            <!-- Viernes 23/10 -->
             <div class="day-card">
                 <div class="day-header">
                     <span class="day-title">Viernes 23/10 – Sede BAFerial</span>
@@ -363,19 +436,20 @@
                     </li>
                     <li class="event-item">
                         <span class="event-time">19:30 hs</span>
-                        <span class="event-desc">Regreso al Hotel O2.</span>
+                        <span class="event-desc">Regreso al Hotel O2 para descanso previo.</span>
                     </li>
                     <li class="event-item">
-                        <span class="event-time">21:00 - 03:00 hs</span>
-                        <span class="event-desc">Evento nocturno: La Pixel (XR + Música en vivo).</span>
+                        <span class="event-time">21:00 hs en adelante</span>
+                        <span class="event-desc">Propuestas de salidas nocturnas (ver sección abajo).</span>
                     </li>
                 </ul>
             </div>
 
+            <!-- Sábado 24/10 -->
             <div class="day-card">
                 <div class="day-header">
                     <span class="day-title">Sábado 24/10 – Cierre y Regreso</span>
-                    <span class="day-location">BAFerial → Corrientes</span>
+                    <span class="day-location">BAFerial → Corrientes / Resistencia</span>
                 </div>
                 <ul class="event-list">
                     <li class="event-item">
@@ -392,59 +466,137 @@
                     </li>
                     <li class="event-item">
                         <span class="event-time">21:00 hs approx.</span>
-                        <span class="event-desc">Salida del colectivo de regreso a Corrientes.</span>
+                        <span class="event-desc">Salida del colectivo de regreso.</span>
                     </li>
                 </ul>
             </div>
 
         </div>
 
+        <!-- Propuestas Noche del Viernes -->
+        <h2 class="section-title">Propuestas de Salida Nocturna (Viernes 23/10)</h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">Opciones organizadas para la noche del viernes. Pueden elegir una sola opción, combinar el inicio en La Pixel o sumarse al evento de electrónica:</p>
+
+        <div class="night-grid">
+
+            <div class="night-card">
+                <div class="night-content">
+                    <span class="night-tag">Fiesta Oficial EVA</span>
+                    <h3 class="night-title">La Pixel (TC Club)</h3>
+                    <ul class="topics-list">
+                        <li>Horario: 21:00 a 03:00 hs</li>
+                        <li>Entrada Gratuita</li>
+                        <li>Experiencias XR + Música en vivo</li>
+                        <li>Espacio ideal para networking informal con desarrolladores</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="night-card">
+                <div class="night-content">
+                    <span class="night-tag">Boliche / Club</span>
+                    <h3 class="night-title">Cruz Apolo</h3>
+                    <ul class="topics-list">
+                        <li>Propuesta de boliche bailable para el grupo</li>
+                        <li>Ingreso gratuito anunciado antes de la 01:00 hs</li>
+                        <li>Promoción disponible: 3x2 en accesos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="night-card">
+                <div class="night-content">
+                    <span class="night-tag">Música Electrónica</span>
+                    <h3 class="night-title">Crobar (Palermo)</h3>
+                    <ul class="topics-list">
+                        <li>Fecha especial de música electrónica</li>
+                        <li>Presentación del DJ Geva</li>
+                        <li>Ubicado en el paseo de la infanta (Palermo)</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Estudios Indie -->
         <h2 class="section-title">Estudios Indie Seleccionados para Visitar</h2>
         <div class="studios-grid">
 
             <div class="studio-card">
-                <span class="studio-name">Comfy Games</span>
-                <h3 class="game-title">Quantum Echoes</h3>
-                <ul class="topics-list">
-                    <li>Diseño de niveles e itinerario sci-fi</li>
-                    <li>Narrativa y pacing del proyecto</li>
-                </ul>
+                <img src="quantum.png" alt="Quantum Echoes" class="studio-img">
+                <div class="studio-content">
+                    <span class="studio-name">Comfy Games</span>
+                    <h3 class="game-title">Quantum Echoes</h3>
+                    <ul class="topics-list">
+                        <li>Diseño de niveles e itinerario sci-fi</li>
+                        <li>Narrativa y pacing del proyecto</li>
+                    </ul>
+                    <div class="btn-group">
+                        <a href="https://comfygamescomfy.wixsite.com/comfy-games" target="_blank" class="social-btn">🌐 Sitio Web</a>
+                        <a href="https://store.steampowered.com/app/4095460/Quantum_Echoes/" target="_blank" class="social-btn">🎮 Steam</a>
+                    </div>
+                </div>
             </div>
 
             <div class="studio-card">
-                <span class="studio-name">Creative D-Ploy</span>
-                <h3 class="game-title">Honeymoon to Hell</h3>
-                <ul class="topics-list">
-                    <li>Dirección de arte y paleta de color</li>
-                    <li>Mecánicas de combate roguelite</li>
-                </ul>
+                <img src="honeymoon.png" alt="Honeymoon to Hell" class="studio-img">
+                <div class="studio-content">
+                    <span class="studio-name">Creative D-Ploy</span>
+                    <h3 class="game-title">Honeymoon to Hell</h3>
+                    <ul class="topics-list">
+                        <li>Dirección de arte y paleta de color</li>
+                        <li>Mecánicas de combate roguelite</li>
+                    </ul>
+                    <div class="btn-group">
+                        <a href="https://www.creativedploy.com/#projects" target="_blank" class="social-btn">🌐 Sitio Web</a>
+                        <a href="https://www.instagram.com/creativedploy/" target="_blank" class="social-btn">📸 Instagram</a>
+                    </div>
+                </div>
             </div>
 
             <div class="studio-card">
-                <span class="studio-name">Abstract Digital</span>
-                <h3 class="game-title">Not To Be Forgotten</h3>
-                <ul class="topics-list">
-                    <li>Estilo visual y modelado 3D estilizado</li>
-                    <li>Feedback visual e interfaz de usuario</li>
-                </ul>
+                <img src="mix.png" alt="MIX To Be Forgotten" class="studio-img">
+                <div class="studio-content">
+                    <span class="studio-name">Abstract Digital</span>
+                    <h3 class="game-title">MIX To Be Forgotten</h3>
+                    <ul class="topics-list">
+                        <li>Estilo visual y modelado 3D estilizado</li>
+                        <li>Feedback visual e interfaz de usuario</li>
+                    </ul>
+                    <div class="btn-group">
+                        <a href="https://www.instagram.com/abstract_dw/?hl=es" target="_blank" class="social-btn">📸 Instagram</a>
+                    </div>
+                </div>
             </div>
 
             <div class="studio-card">
-                <span class="studio-name">BELS Games</span>
-                <h3 class="game-title">Parasomnia: No REM</h3>
-                <ul class="topics-list">
-                    <li>Ambientación de terror e iluminación</li>
-                    <li>Diseño de sonido y atmósfera inmersiva</li>
-                </ul>
+                <img src="parasomnia.png" alt="Parasomnia: No REM" class="studio-img">
+                <div class="studio-content">
+                    <span class="studio-name">BELS Games</span>
+                    <h3 class="game-title">Parasomnia: No REM</h3>
+                    <ul class="topics-list">
+                        <li>Ambientación de terror e iluminación</li>
+                        <li>Diseño de sonido y atmósfera inmersiva</li>
+                    </ul>
+                    <div class="btn-group">
+                        <a href="https://belsgames.com" target="_blank" class="social-btn">🌐 Sitio Web</a>
+                    </div>
+                </div>
             </div>
 
             <div class="studio-card">
-                <span class="studio-name">Symbio Studio</span>
-                <h3 class="game-title">Gaucho: Subway Escape</h3>
-                <ul class="topics-list">
-                    <li>Diseño de personajes 2D/3D</li>
-                    <li>Mecánicas de sigilo y escape</li>
-                </ul>
+                <img src="gaucho.png" alt="Gaucho: Subway Escape" class="studio-img">
+                <div class="studio-content">
+                    <span class="studio-name">Symbio Studio</span>
+                    <h3 class="game-title">Gaucho: Subway Escape</h3>
+                    <ul class="topics-list">
+                        <li>Diseño de personajes 2D/3D</li>
+                        <li>Mecánicas de sigilo y escape</li>
+                    </ul>
+                    <div class="btn-group">
+                        <a href="https://www.symbiostudio.dev/games" target="_blank" class="social-btn">🌐 Sitio Web</a>
+                    </div>
+                </div>
             </div>
 
         </div>
