@@ -361,14 +361,14 @@
             font-size: 0.85rem;
         }
 
-        /* Grid de Estudios y Noches */
-        .studios-grid, .night-grid, .apps-grid {
+        /* Grid de Estudios, Charlas y Noches */
+        .studios-grid, .night-grid, .apps-grid, .talks-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 16px;
         }
 
-        .studio-card, .night-card, .app-card {
+        .studio-card, .night-card, .app-card, .talk-card {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
             border-radius: 12px;
@@ -390,11 +390,11 @@
             border-bottom: 1px solid var(--border-card);
         }
 
-        .studio-content, .night-content, .app-content {
+        .studio-content, .night-content, .app-content, .talk-content {
             padding: 18px;
         }
 
-        .studio-name, .night-tag, .app-tag {
+        .studio-name, .night-tag, .app-tag, .talk-tag {
             font-size: 0.8rem;
             color: var(--accent-cyan);
             text-transform: uppercase;
@@ -402,7 +402,7 @@
             font-weight: 700;
         }
 
-        .game-title, .night-title, .app-title {
+        .game-title, .night-title, .app-title, .talk-title {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.2rem;
             color: #fff;
@@ -820,7 +820,53 @@
 
         </div>
 
-        <!-- SECCIÓN NUEVA: APPS RECOMENDADAS PARA BUENOS AIRES -->
+        <!-- SECCIÓN NUEVA: CHARLAS Y CONFERENCIAS SUGERIDAS -->
+        <h2 class="section-title">🎙️ Charlas & Conferencias Recomendadas (EVA 2026)</h2>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 18px;">
+            Ejes temáticos clave sugeridos para las cátedras de Diseño Multimedia, Videojuegos y Animación durante las jornadas:
+        </p>
+
+        <div class="talks-grid" style="margin-bottom: 35px;">
+
+            <div class="talk-card">
+                <div class="talk-content">
+                    <span class="talk-tag">Miércoles 21/10 – Sede BIG</span>
+                    <h3 class="talk-title">Unity Dev Day & Talent Day</h3>
+                    <ul class="topics-list">
+                        <li>Optimización técnica en motores de juego.</li>
+                        <li>Revisiones de portfolios y perfiles profesionales.</li>
+                        <li>Casos de estudio de desarrollo independiente local.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="talk-card">
+                <div class="talk-content">
+                    <span class="talk-tag">Jueves 22/10 – BAFerial</span>
+                    <h3 class="talk-title">EVA Talks & Negocios B2B</h3>
+                    <ul class="topics-list">
+                        <li>Producción general y gestión de proyectos.</li>
+                        <li>Financiamiento e inversión para estudios indie.</li>
+                        <li>Rondas de negocios e inserción internacional.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="talk-card">
+                <div class="talk-content">
+                    <span class="talk-tag">Viernes 23/10 – BAFerial</span>
+                    <h3 class="talk-title">Arte, UI/UX & Programación</h3>
+                    <ul class="topics-list">
+                        <li>Dirección de arte visual y animación 2D/3D.</li>
+                        <li>Diseño de interfaz de usuario y experiencia (UI/UX).</li>
+                        <li>Programación avanzada y arquitectura de juego.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECCIÓN: APPS RECOMENDADAS PARA BUENOS AIRES -->
         <h2 class="section-title">📱 Apps Recomendadas para Moverse en CABA</h2>
         <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 18px;">
             Descargá estas aplicaciones clave en tu celular para gestionar tu saldo SUBE, consultar colectivos, subtes y transporte en CABA:
