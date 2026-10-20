@@ -221,7 +221,7 @@
         }
 
         .plan-card::before {
-            content: '⚠️ SEGURIDAD';
+            content: 'SEGURIDAD';
             position: absolute;
             top: -12px;
             left: 20px;
@@ -311,11 +311,11 @@
             color: #fff;
         }
 
+        /* Botón de envío limpio sin íconos */
         .btn-whatsapp {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
             width: 100%;
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: #fff;
@@ -326,6 +326,8 @@
             cursor: pointer;
             font-size: 0.95rem;
             text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             transition: opacity 0.2s;
         }
 
@@ -361,7 +363,7 @@
             font-size: 0.85rem;
         }
 
-        /* Grid de Estudios, Charlas y Noches */
+        /* Grid de Estudios, Charlas, Noches y Apps */
         .studios-grid, .night-grid, .apps-grid, .talks-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -407,6 +409,17 @@
             font-size: 1.2rem;
             color: #fff;
             margin: 4px 0 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .app-logo-official {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            object-fit: contain;
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .topics-list {
@@ -489,11 +502,11 @@
         <!-- Hotel -->
         <div class="hotel-card">
             <div class="hotel-info">
-                <h3>📍 O2 Hotel Buenos Aires</h3>
+                <h3>O2 Hotel Buenos Aires</h3>
                 <p>Junín 357, Balvanera, CABA (Punto base de alojamiento, incluye desayuno)</p>
             </div>
             <a href="https://share.google/ctQohSfyptkFnvaeU" target="_blank" class="btn-map">
-                🗺️ Ver en Google Maps
+                Ver en Google Maps
             </a>
         </div>
 
@@ -521,7 +534,7 @@
                             <strong>2° Punto de Encuentro: Plazoleta Llano (Corrientes)</strong>
                             <span>Paso a buscar al resto del grupo por Av. 3 de Abril y Maipú. Ascenso rápido al llegar desde Resistencia.</span>
                             <a href="https://maps.app.goo.gl/oZVTDsJXFTLeB1mGA?g_st=aw" target="_blank" class="btn-map" style="margin-top: 6px; width: fit-content;">
-                                📍 Ubicación Plazoleta Llano (Google Maps)
+                                Ubicación Plazoleta Llano (Google Maps)
                             </a>
                         </span>
                     </li>
@@ -640,7 +653,7 @@
         </div>
 
         <!-- Propuestas Noche del Viernes -->
-        <h2 class="section-title">Salida Nocturna (Viernes 23/10) – ¡Día del Diseñador Gráfico! 🎉</h2>
+        <h2 class="section-title">Salida Nocturna (Viernes 23/10) – Día del Diseñador Gráfico</h2>
         <p style="color: var(--text-muted); margin-bottom: 20px;">Tres alternativas para festejar nuestra última noche en CABA:</p>
 
         <div class="night-grid" style="margin-bottom: 35px;">
@@ -660,7 +673,7 @@
 
             <div class="night-card featured">
                 <div class="night-content">
-                    <span class="night-tag" style="color: var(--accent-pink);">Opción B – Sugerida Grupo ⭐</span>
+                    <span class="night-tag" style="color: var(--accent-pink);">Opción B – Sugerida Grupo</span>
                     <h3 class="night-title">Cruza Polo (Palermo)</h3>
                     <ul class="topics-list">
                         <li><strong>Lugar:</strong> Campo Argentino de Polo</li>
@@ -669,7 +682,7 @@
                         <li><strong>Individual:</strong> $17.250 (Ingreso hasta las 3:00 am)</li>
                     </ul>
                     <div class="btn-group" style="margin-top: 15px;">
-                        <a href="https://planout.ar/cruzapolo/HomePlanout" target="_blank" class="social-btn" style="background: var(--accent-purple); border-color: var(--accent-purple);">🎟️ Reservar en PlanOut</a>
+                        <a href="https://planout.ar/cruzapolo/HomePlanout" target="_blank" class="social-btn" style="background: var(--accent-purple); border-color: var(--accent-purple);">Reservar en PlanOut</a>
                     </div>
                 </div>
             </div>
@@ -684,7 +697,7 @@
                         <li>Entradas a través de Bombo</li>
                     </ul>
                     <div class="btn-group" style="margin-top: 15px;">
-                        <a href="https://wearebombo.com/evento/6ac3fe3784011be5ff2b8a57?_branch_match_id=1636185705244199489&utm_source=app&utm_medium=sharing&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL09NLEpNys9NytdLLCjQy8nMy9aPKjR2N8gqD44yS7KvK0pNSy0qysxLj08qyi8vTi2y9S9ILUoEAM09QAVAAAAA" target="_blank" class="social-btn">🎟️ Comprar en Bombo</a>
+                        <a href="https://wearebombo.com/evento/6ac3fe3784011be5ff2b8a57?_branch_match_id=1636185705244199489&utm_source=app&utm_medium=sharing&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL09NLEpNys9NytdLLCjQy8nMy9aPKjR2N8gqD44yS7KvK0pNSy0qysxLj08qyi8vTi2y9S9ILUoEAM09QAVAAAAA" target="_blank" class="social-btn">Comprar en Bombo</a>
                     </div>
                 </div>
             </div>
@@ -719,20 +732,21 @@
             <div class="form-group">
                 <label>4. Ubicación actual (Opcional pero recomendado):</label>
                 <button type="button" class="btn-location" onclick="getLocation()">
-                    📍 Adjuntar mi ubicación actual (GPS)
+                    Adjuntar mi ubicación actual (GPS)
                 </button>
                 <input type="text" id="locationUrl" class="form-input" placeholder="El enlace de tu ubicación aparecerá aquí..." readonly>
             </div>
 
+            <!-- Botón de Envío sin emojis ni íconos -->
             <button type="button" onclick="startWhatsAppSending()" class="btn-whatsapp">
-                📱 🚨 Enviar Reporte a la Coordinación
+                Enviar Reporte a la Coordinación
             </button>
 
             <!-- Asistente de Envío Secuencial -->
             <div id="statusBox" class="send-status-box">
                 <p id="statusText">Paso 1 de 3: Reporte enviado a Prof. Sebastián.</p>
                 <button type="button" id="nextSendBtn" class="btn-next-send" onclick="sendNext()">
-                    Enviar copia a Julieta (Ivania Turismo) ➔
+                    Enviar copia a Julieta (Ivania Turismo)
                 </button>
             </div>
         </div>
@@ -751,8 +765,8 @@
                         <li>Narrativa y pacing del proyecto</li>
                     </ul>
                     <div class="btn-group">
-                        <a href="https://comfygamescomfy.wixsite.com/comfy-games" target="_blank" class="social-btn">🌐 Sitio Web</a>
-                        <a href="https://store.steampowered.com/app/4095460/Quantum_Echoes/" target="_blank" class="social-btn">🎮 Steam</a>
+                        <a href="https://comfygamescomfy.wixsite.com/comfy-games" target="_blank" class="social-btn">Sitio Web</a>
+                        <a href="https://store.steampowered.com/app/4095460/Quantum_Echoes/" target="_blank" class="social-btn">Steam</a>
                     </div>
                 </div>
             </div>
@@ -767,8 +781,8 @@
                         <li>Mecánicas de combate roguelite</li>
                     </ul>
                     <div class="btn-group">
-                        <a href="https://www.creativedploy.com/#projects" target="_blank" class="social-btn">🌐 Sitio Web</a>
-                        <a href="https://www.instagram.com/creativedploy/" target="_blank" class="social-btn">📸 Instagram</a>
+                        <a href="https://www.creativedploy.com/#projects" target="_blank" class="social-btn">Sitio Web</a>
+                        <a href="https://www.instagram.com/creativedploy/" target="_blank" class="social-btn">Instagram</a>
                     </div>
                 </div>
             </div>
@@ -783,7 +797,7 @@
                         <li>Feedback visual e interfaz de usuario</li>
                     </ul>
                     <div class="btn-group">
-                        <a href="https://www.instagram.com/abstract_dw/?hl=es" target="_blank" class="social-btn">📸 Instagram</a>
+                        <a href="https://www.instagram.com/abstract_dw/?hl=es" target="_blank" class="social-btn">Instagram</a>
                     </div>
                 </div>
             </div>
@@ -798,7 +812,7 @@
                         <li>Diseño de sonido y atmósfera inmersiva</li>
                     </ul>
                     <div class="btn-group">
-                        <a href="https://belsgames.com" target="_blank" class="social-btn">🌐 Sitio Web</a>
+                        <a href="https://belsgames.com" target="_blank" class="social-btn">Sitio Web</a>
                     </div>
                 </div>
             </div>
@@ -813,15 +827,15 @@
                         <li>Mecánicas de sigilo y escape</li>
                     </ul>
                     <div class="btn-group">
-                        <a href="https://www.symbiostudio.dev/games" target="_blank" class="social-btn">🌐 Sitio Web</a>
+                        <a href="https://www.symbiostudio.dev/games" target="_blank" class="social-btn">Sitio Web</a>
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <!-- SECCIÓN NUEVA: CHARLAS Y CONFERENCIAS SUGERIDAS -->
-        <h2 class="section-title">🎙️ Charlas & Conferencias Recomendadas (EVA 2026)</h2>
+        <!-- CHARLAS Y CONFERENCIAS SUGERIDAS -->
+        <h2 class="section-title">Charlas & Conferencias Recomendadas (EVA 2026)</h2>
         <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 18px;">
             Ejes temáticos clave sugeridos para las cátedras de Diseño Multimedia, Videojuegos y Animación durante las jornadas:
         </p>
@@ -866,8 +880,8 @@
 
         </div>
 
-        <!-- SECCIÓN: APPS RECOMENDADAS PARA BUENOS AIRES -->
-        <h2 class="section-title">📱 Apps Recomendadas para Moverse en CABA</h2>
+        <!-- SECCIÓN: APPS RECOMENDADAS PARA BUENOS AIRES (CON LOGOS OFICIALES) -->
+        <h2 class="section-title">Apps Recomendadas para Moverse en CABA</h2>
         <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 18px;">
             Descargá estas aplicaciones clave en tu celular para gestionar tu saldo SUBE, consultar colectivos, subtes y transporte en CABA:
         </p>
@@ -878,7 +892,10 @@
             <div class="app-card">
                 <div class="app-content">
                     <span class="app-tag">Tarjeta & Transporte</span>
-                    <h3 class="app-title">💳 App SUBE</h3>
+                    <h3 class="app-title">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Tarjeta_SUBE_logo.svg" alt="SUBE" class="app-logo-official">
+                        App SUBE
+                    </h3>
                     <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px;">Cargar saldo por NFC, consultar saldo disponible y ver historial de viajes.</p>
                     <div class="btn-group">
                         <a href="https://play.google.com/store/apps/details?id=ar.gob.nacion.sube" target="_blank" class="social-btn" style="background: rgba(0, 242, 254, 0.15); border-color: var(--accent-cyan); color: var(--accent-cyan);">Android</a>
@@ -891,8 +908,11 @@
             <div class="app-card">
                 <div class="app-content">
                     <span class="app-tag">Colectivos & Trenes</span>
-                    <h3 class="app-title">🚌 Moovit</h3>
-                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px;">Horarios en tiempo real, mapa interactivo de líneas y alertas de demoras.</p>
+                    <h3 class="app-title">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Moovit_logo.svg" alt="Moovit" class="app-logo-official">
+                        Moovit / BA Cómo Llego
+                    </h3>
+                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px;">Horarios en tiempo real, mapa interactivo de colectivos y alertas de demoras.</p>
                     <div class="btn-group">
                         <a href="https://play.google.com/store/apps/details?id=com.tranzmate" target="_blank" class="social-btn" style="background: rgba(0, 242, 254, 0.15); border-color: var(--accent-cyan); color: var(--accent-cyan);">Android</a>
                         <a href="https://apps.apple.com/ar/app/moovit-rutas-en-vivo-y-subte/id498477945" target="_blank" class="social-btn">iOS</a>
@@ -900,15 +920,18 @@
                 </div>
             </div>
 
-            <!-- Citymapper -->
+            <!-- BA Subte -->
             <div class="app-card">
                 <div class="app-content">
-                    <span class="app-tag">Red de Subte</span>
-                    <h3 class="app-title">🚇 Citymapper</h3>
-                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px;">Plano interactivo de las líneas A-H, combinaciones y mapa offline.</p>
+                    <span class="app-tag">Red de Subte CABA</span>
+                    <h3 class="app-title">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Subte_Buenos_Aires_logo.svg" alt="BA Subte" class="app-logo-official">
+                        BA Subte (Oficial CABA)
+                    </h3>
+                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px;">Estado en vivo de las líneas A-H, alertas de interrupciones, combinaciones y mapa.</p>
                     <div class="btn-group">
-                        <a href="https://play.google.com/store/apps/details?id=com.citymapper.app" target="_blank" class="social-btn" style="background: rgba(0, 242, 254, 0.15); border-color: var(--accent-cyan); color: var(--accent-cyan);">Android</a>
-                        <a href="https://apps.apple.com/ar/app/citymapper/id469463298" target="_blank" class="social-btn">iOS</a>
+                        <a href="https://play.google.com/store/apps/details?id=ar.gob.buenosaires.basubte" target="_blank" class="social-btn" style="background: rgba(0, 242, 254, 0.15); border-color: var(--accent-cyan); color: var(--accent-cyan);">Android</a>
+                        <a href="https://apps.apple.com/ar/app/ba-subte/id881180231" target="_blank" class="social-btn">iOS</a>
                     </div>
                 </div>
             </div>
@@ -917,7 +940,10 @@
             <div class="app-card">
                 <div class="app-content">
                     <span class="app-tag">Transporte Privado</span>
-                    <h3 class="app-title">🚗 Uber / Cabify</h3>
+                    <h3 class="app-title">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.svg" alt="Uber" class="app-logo-official" style="filter: invert(1);">
+                        Uber / Cabify
+                    </h3>
                     <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px;">Movilidad recomendada para traslados en grupos durante la noche.</p>
                     <div class="btn-group">
                         <a href="https://play.google.com/store/apps/details?id=com.ubercab" target="_blank" class="social-btn" style="background: rgba(0, 242, 254, 0.15); border-color: var(--accent-cyan); color: var(--accent-cyan);">Android</a>
@@ -1050,20 +1076,20 @@
             openWhatsApp(contacts[0].phone);
 
             document.getElementById("statusBox").style.display = "block";
-            document.getElementById("statusText").innerText = `✅ Paso 1 de 3: Iniciado envío a ${contacts[0].name}.`;
-            document.getElementById("nextSendBtn").innerText = `Enviar copia a ${contacts[1].name} ➔`;
+            document.getElementById("statusText").innerText = `Paso 1 de 3: Iniciado envío a ${contacts[0].name}.`;
+            document.getElementById("nextSendBtn").innerText = `Enviar copia a ${contacts[1].name}`;
             currentStep = 1;
         }
 
         function sendNext() {
             if (currentStep === 1) {
                 openWhatsApp(contacts[1].phone);
-                document.getElementById("statusText").innerText = `✅ Paso 2 de 3: Copia enviada a ${contacts[1].name}.`;
-                document.getElementById("nextSendBtn").innerText = `Enviar copia a ${contacts[2].name} ➔`;
+                document.getElementById("statusText").innerText = `Paso 2 de 3: Copia enviada a ${contacts[1].name}.`;
+                document.getElementById("nextSendBtn").innerText = `Enviar copia a ${contacts[2].name}`;
                 currentStep = 2;
             } else if (currentStep === 2) {
                 openWhatsApp(contacts[2].phone);
-                document.getElementById("statusText").innerText = `🎉 ¡Listo! Notificación enviada exitosamente a toda la coordinación.`;
+                document.getElementById("statusText").innerText = `Notificación enviada exitosamente a toda la coordinación.`;
                 document.getElementById("nextSendBtn").style.display = "none";
             }
         }
