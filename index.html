@@ -1,61 +1,584 @@
-<!-- SECCIÓN: APPS RECOMENDADAS PARA BUENOS AIRES -->
-<section style="margin-top: 40px; padding: 25px; background: rgba(18, 20, 32, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px;">
-    <h2 style="font-family: 'Space Grotesk', sans-serif; color: #00f2fe; font-size: 1.4rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-        📱 Apps Recomendadas para Moverse en CABA
-    </h2>
-    <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 20px;">
-        Descargá estas aplicaciones clave en tu celular para gestionar tu transporte, consultar saldo de la SUBE y moverte por la ciudad.
-    </p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viaje EVA 2026 - Guía Estudiantil y Cronograma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0b10;
+            --bg-card: #121420;
+            --accent-cyan: #00f2fe;
+            --accent-pink: #ff0080;
+            --accent-purple: #7928ca;
+            --accent-green: #10b981;
+            --accent-yellow: #f59e0b;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-card: rgba(255, 255, 255, 0.1);
+        }
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px;">
-        
-        <!-- App: SUBE -->
-        <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); padding: 15px; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-                <h3 style="color: #fff; font-size: 1.05rem; margin-bottom: 4px;">💳 App SUBE</h3>
-                <p style="color: #94a3b8; font-size: 0.8rem; margin-bottom: 12px;">Carga de saldo por NFC, consulta de saldo al instante y acreditación de cargas.</p>
-            </div>
-            <div style="display: flex; gap: 8px;">
-                <a href="https://play.google.com/store/apps/details?id=ar.gob.nacion.sube" target="_blank" style="flex: 1; text-align: center; background: rgba(0, 242, 254, 0.15); color: #00f2fe; border: 1px solid #00f2fe; padding: 6px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; text-decoration: none;">Android</a>
-                <a href="https://apps.apple.com/ar/app/app-sube/id1450201088" target="_blank" style="flex: 1; text-align: center; background: rgba(255, 255, 255, 0.1); color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 6px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; text-decoration: none;">iOS</a>
-            </div>
-        </div>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        <!-- App: Moovit / BA Cómo Llego -->
-        <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); padding: 15px; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-                <h3 style="color: #fff; font-size: 1.05rem; margin-bottom: 4px;">🚌 Moovit (Colectivos y Subtes)</h3>
-                <p style="color: #94a3b8; font-size: 0.8rem; margin-bottom: 12px;">Mapas de colectivos, horarios de subte en tiempo real y alertas de trayecto.</p>
-            </div>
-            <div style="display: flex; gap: 8px;">
-                <a href="https://play.google.com/store/apps/details?id=com.tranzmate" target="_blank" style="flex: 1; text-align: center; background: rgba(0, 242, 254, 0.15); color: #00f2fe; border: 1px solid #00f2fe; padding: 6px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; text-decoration: none;">Android</a>
-                <a href="https://apps.apple.com/ar/app/moovit-rutas-en-vivo-y-subte/id498477945" target="_blank" style="flex: 1; text-align: center; background: rgba(255, 255, 255, 0.1); color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 6px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; text-decoration: none;">iOS</a>
-            </div>
-        </div>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            padding: 20px;
+            background-image: radial-gradient(circle at 50% 0%, rgba(121, 40, 202, 0.15) 0%, transparent 50%),
+                              radial-gradient(circle at 0% 100%, rgba(0, 242, 254, 0.1) 0%, transparent 40%);
+            min-height: 100vh;
+        }
 
-        <!-- App: BA Subte -->
-        <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); padding: 15px; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-                <h3 style="color: #fff; font-size: 1.05rem; margin-bottom: 4px;">🚇 Mapa de Subtes CABA</h3>
-                <p style="color: #94a3b8; font-size: 0.8rem; margin-bottom: 12px;">Plano interactivo de las líneas de subte A, B, C, D, E y H sin conexión.</p>
-            </div>
-            <div style="display: flex; gap: 8px;">
-                <a href="https://play.google.com/store/apps/details?id=com.citymapper.app" target="_blank" style="flex: 1; text-align: center; background: rgba(0, 242, 254, 0.15); color: #00f2fe; border: 1px solid #00f2fe; padding: 6px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; text-decoration: none;">Android</a>
-                <a href="https://apps.apple.com/ar/app/citymapper/id469463298" target="_blank" style="flex: 1; text-align: center; background: rgba(255, 255, 255, 0.1); color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 6px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; text-decoration: none;">iOS</a>
-            </div>
-        </div>
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-        <!-- App: Uber / Cabify -->
-        <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); padding: 15px; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-                <h3 style="color: #fff; font-size: 1.05rem; margin-bottom: 4px;">🚗 Uber / Cabify</h3>
-                <p style="color: #94a3b8; font-size: 0.8rem; margin-bottom: 12px;">Transporte privado sugerido para recorridos nocturnos o en grupos.</p>
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .badge {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #fff, var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .hotel-info {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-card);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn-map {
+            background: rgba(0, 242, 254, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+            padding: 8px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-map:hover {
+            background: var(--accent-cyan);
+            color: #000;
+        }
+
+        section {
+            margin-bottom: 35px;
+        }
+
+        h2.section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            color: var(--accent-cyan);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-card);
+            padding-bottom: 8px;
+        }
+
+        /* Timeline Cronograma */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .day-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 14px;
+            padding: 18px;
+        }
+
+        .day-header {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            color: var(--accent-pink);
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .event-item {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .event-item:last-child { border-bottom: none; }
+
+        .event-time {
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        .event-desc {
+            color: var(--text-main);
+        }
+
+        /* Sección Seguridad / Alert */
+        .security-section {
+            background: linear-gradient(135deg, rgba(255, 0, 128, 0.1), rgba(121, 40, 202, 0.15));
+            border: 1px solid var(--accent-pink);
+            border-radius: 16px;
+            padding: 22px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-card);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--accent-cyan);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .btn-submit:hover { opacity: 0.9; }
+
+        .location-badge {
+            font-size: 0.8rem;
+            color: var(--accent-green);
+            margin-top: 6px;
+            display: block;
+        }
+
+        /* Apps Grid */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .app-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-card);
+            padding: 16px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .app-card h3 {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .app-card p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+        }
+
+        .app-btn-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .app-link {
+            flex: 1;
+            text-align: center;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .app-link-android {
+            background: rgba(0, 242, 254, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+        }
+
+        .app-link-ios {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border-card);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ENCABEZADO PRINCIPAL -->
+        <header>
+            <span class="badge">Delegación Estudiantil 2026</span>
+            <h1>Viaje EVA 2026</h1>
+            <p class="subtitle">Guía de itinerario, sedes y seguridad para estudiantes</p>
+
+            <div class="hotel-info">
+                <div style="text-align: left;">
+                    <strong style="color: #fff; font-size: 0.95rem;">🏨 O2 Hotel Buenos Aires</strong>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Junín 357, Balvanera, CABA</p>
+                </div>
+                <a href="https://maps.google.com/?q=O2+Hotel+Buenos+Aires+Junin+357" target="_blank" class="btn-map">Ver en Google Maps</a>
             </div>
-            <div style="display: flex; gap: 8px;">
-                <a href="https://play.google.com/store/apps/details?id=com.ubercab" target="_blank" style="flex: 1; text-align: center; background: rgba(0, 242, 254, 0.15); color: #00f2fe; border: 1px solid #00f2fe; padding: 6px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; text-decoration: none;">Android</a>
-                <a href="https://apps.apple.com/ar/app/uber-pide-un-viaje/id368677368" target="_blank" style="flex: 1; text-align: center; background: rgba(255, 255, 255, 0.1); color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 6px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; text-decoration: none;">iOS</a>
+        </header>
+
+        <!-- CRONOGRAMA DE ACTIVIDADES -->
+        <section>
+            <h2 class="section-title">📅 Cronograma Oficial de Actividades</h2>
+            <div class="timeline">
+
+                <!-- Día 1 -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <span>Martes 20/10 – Salida</span>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Resistencia / Corrientes ➔ CABA</span>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-time">19:30 hs</span>
+                        <span class="event-desc">1° Punto de encuentro: Terminal de Resistencia.</span>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-time">20:30 hs</span>
+                        <span class="event-desc">2° Punto de encuentro: Plazoleta Llano (Corrientes).</span>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-time">Durante el viaje</span>
+                        <span class="event-desc">Servicios a bordo (merienda por la noche, café por la mañana y frigobar disponible con agua, gaseosa y jugo).</span>
+                    </div>
+                </div>
+
+                <!-- Día 2 -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <span>Miércoles 21/10 – Sede BIG</span>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Barracas (CABA)</span>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-time">Mañana</span>
+                        <span class="event-desc">Llegada a CABA y check-in en O2 Hotel Buenos Aires.</span>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-time">Tarde</span>
+                        <span class="event-desc">Jornada de actividades en Sede BIG (Barracas).</span>
+                    </div>
+                </div>
+
+                <!-- Día 3 -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <span>Jueves 22/10 – Sede BAFerial</span>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Costanera Norte</span>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-time">Todo el día</span>
+                        <span class="event-desc">Participación en Sede BAFerial (Costanera Norte), conferencias y rondas de negocios.</span>
+                    </div>
+                </div>
+
+                <!-- Día 4 y 5 -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <span>Viernes 23/10 y Sábado 24/10 – Cierre y Regreso</span>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-time">Viernes</span>
+                        <span class="event-desc">Última jornada de actividades EVA 2026.</span>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-time">Sábado</span>
+                        <span class="event-desc">Check-out del hotel y salida del colectivo de regreso.</span>
+                    </div>
+                </div>
+
             </div>
-        </div>
+        </section>
+
+        <!-- SECCIÓN: REGISTRO DE PLAN ALTERNATIVO Y SEGURIDAD -->
+        <section class="security-section">
+            <h2 class="section-title" style="color: var(--accent-pink);">🛡️ Notificar Plan Alternativo / Ausencia</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 18px;">
+                Si vas a desvincularte temporalmente del grupo o asistir a un lugar fuera del cronograma, completa este formulario para enviar el reporte automático por WhatsApp a la coordinación.
+            </p>
+
+            <form id="securityForm" onsubmit="sendAlert(event)">
+                <div class="form-group">
+                    <label for="studentSelect">Nombre y Apellido del Alumno:</label>
+                    <select id="studentSelect" required>
+                        <option value="">-- Selecciona tu nombre --</option>
+                        <!-- 57 Alumnos -->
+                        <option value="Acevedo Jose Julian">Acevedo Jose Julian</option>
+                        <option value="Alegre Lionel Nicolas">Alegre Lionel Nicolas</option>
+                        <option value="Alvarenga Karen">Alvarenga Karen</option>
+                        <option value="Alvarez José">Alvarez José</option>
+                        <option value="AQUINO, Damián Exequiel">AQUINO, Damián Exequiel</option>
+                        <option value="Bárbara Andrea Flores Leliur">Bárbara Andrea Flores Leliur</option>
+                        <option value="Barrios Servín Gimena Paola">Barrios Servín Gimena Paola</option>
+                        <option value="Becerra María Paula">Becerra María Paula</option>
+                        <option value="Benjamin Rolón">Benjamin Rolón</option>
+                        <option value="Botello Capará Abril Maria">Botello Capará Abril Maria</option>
+                        <option value="Bruno Sosa Maia Aylen">Bruno Sosa Maia Aylen</option>
+                        <option value="Claudio Ezequiel Martinez Borda">Claudio Ezequiel Martinez Borda</option>
+                        <option value="Clemente Rolon Joaquin Daniel">Clemente Rolon Joaquin Daniel</option>
+                        <option value="Cochia Lucia">Cochia Lucia</option>
+                        <option value="Couceiro Carlos Adolfo">Couceiro Carlos Adolfo</option>
+                        <option value="Couceiro Manuel">Couceiro Manuel</option>
+                        <option value="De Greef Juan Martín">De Greef Juan Martín</option>
+                        <option value="Di Rado Franco">Di Rado Franco</option>
+                        <option value="Díaz Moroni Melanie Nain">Díaz Moroni Melanie Nain</option>
+                        <option value="Esquivel maria jimena">Esquivel maria jimena</option>
+                        <option value="Gallardo Lucas Gabriel">Gallardo Lucas Gabriel</option>
+                        <option value="Gimenez Guadalupe">Gimenez Guadalupe</option>
+                        <option value="Giuliano Tubiana">Giuliano Tubiana</option>
+                        <option value="Godoy Hector Santiago">Godoy Hector Santiago</option>
+                        <option value="Gómez Codutti Lucas">Gómez Codutti Lucas</option>
+                        <option value="Gualtieri Fiorella Agostina">Gualtieri Fiorella Agostina</option>
+                        <option value="Juan Diego Gomez">Juan Diego Gomez</option>
+                        <option value="Livia Acosta José Martín">Livia Acosta José Martín</option>
+                        <option value="Lopez Hardy Carlos">Lopez Hardy Carlos</option>
+                        <option value="Maccarini Renzo">Maccarini Renzo</option>
+                        <option value="Margaria Branz María Pilar">Margaria Branz María Pilar</option>
+                        <option value="Margaria Gimena">Margaria Gimena</option>
+                        <option value="Mariasch, David">Mariasch, David</option>
+                        <option value="Martina Natali Vega">Martina Natali Vega</option>
+                        <option value="Martinez Quiñones María de los Angeles">Martinez Quiñones María de los Angeles</option>
+                        <option value="Martins Delfina">Martins Delfina</option>
+                        <option value="Mateo Pelizardi">Mateo Pelizardi</option>
+                        <option value="Mia Nazaret Reijers">Mia Nazaret Reijers</option>
+                        <option value="Montiel FogarThiago Nahuel">Montiel FogarThiago Nahuel</option>
+                        <option value="Nessier Tobias">Nessier Tobias</option>
+                        <option value="Parra Esteban">Parra Esteban</option>
+                        <option value="Pérez Velazco, Ariadna Carolina">Pérez Velazco, Ariadna Carolina</option>
+                        <option value="Poberezny Sebastián">Poberezny Sebastián</option>
+                        <option value="PRIETO FERNANDEZ, ENZO GABRIEL">PRIETO FERNANDEZ, ENZO GABRIEL</option>
+                        <option value="Radovancic Mijail lerko">Radovancic Mijail lerko</option>
+                        <option value="Rigoni Sappa Oriana Aylen">Rigoni Sappa Oriana Aylen</option>
+                        <option value="Romero Delfina">Romero Delfina</option>
+                        <option value="Rossi Aaron">Rossi Aaron</option>
+                        <option value="Sanchez Ojeda Matías Rogelio">Sanchez Ojeda Matías Rogelio</option>
+
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="planDetails">¿A dónde vas y con quiénes / motivo?</label>
+                    <textarea id="planDetails" rows="3" placeholder="Ej: Me voy a cenar a Palermo con Juan y Vane, regreso a las 23 hs." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="button" class="btn-map" style="width: 100%; font-weight: bold; cursor: pointer;" onclick="getGeoLocation()">
+                        📍 Adjuntar mi Ubicación GPS en Vivo
+                    </button>
+                    <span id="locationStatus" class="location-badge"></span>
+                </div>
+
+                <button type="submit" class="btn-submit">📱 Notificar a Coordinadores por WhatsApp</button>
+            </form>
+        </section>
+
+        <!-- SECCIÓN: APPS RECOMENDADAS PARA BUENOS AIRES -->
+        <section>
+            <h2 class="section-title">📱 Apps Recomendadas para Moverse en CABA</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 18px;">
+                Descargá estas aplicaciones esenciales para consultar tu SUBE, ver recorridos de colectivos, subtes y transporte en CABA.
+            </p>
+
+            <div class="apps-grid">
+                
+                <!-- SUBE -->
+                <div class="app-card">
+                    <div>
+                        <h3>💳 App SUBE</h3>
+                        <p>Acreditar saldo por NFC, consultar saldo disponible y movimientos.</p>
+                    </div>
+                    <div class="app-btn-group">
+                        <a href="https://play.google.com/store/apps/details?id=ar.gob.nacion.sube" target="_blank" class="app-link app-link-android">Android</a>
+                        <a href="https://apps.apple.com/ar/app/app-sube/id1450201088" target="_blank" class="app-link app-link-ios">iOS</a>
+                    </div>
+                </div>
+
+                <!-- Moovit -->
+                <div class="app-card">
+                    <div>
+                        <h3>🚌 Moovit (Colectivos y Subtes)</h3>
+                        <p>Rutas en vivo, horarios de colectivo y mapa interactivo de transporte.</p>
+                    </div>
+                    <div class="app-btn-group">
+                        <a href="https://play.google.com/store/apps/details?id=com.tranzmate" target="_blank" class="app-link app-link-android">Android</a>
+                        <a href="https://apps.apple.com/ar/app/moovit-rutas-en-vivo-y-subte/id498477945" target="_blank" class="app-link app-link-ios">iOS</a>
+                    </div>
+                </div>
+
+                <!-- Citymapper / Subte -->
+                <div class="app-card">
+                    <div>
+                        <h3>🚇 Citymapper (Mapa de Subte)</h3>
+                        <p>Tiempos de llegada, estados de las líneas A-H y guía para combinar subtes.</p>
+                    </div>
+                    <div class="app-btn-group">
+                        <a href="https://play.google.com/store/apps/details?id=com.citymapper.app" target="_blank" class="app-link app-link-android">Android</a>
+                        <a href="https://apps.apple.com/ar/app/citymapper/id469463298" target="_blank" class="app-link app-link-ios">iOS</a>
+                    </div>
+                </div>
+
+                <!-- Uber / Cabify -->
+                <div class="app-card">
+                    <div>
+                        <h3>🚗 Uber / Cabify</h3>
+                        <p>Opciones de autos y movilidad privada recomendados para viajes grupales nocturnos.</p>
+                    </div>
+                    <div class="app-btn-group">
+                        <a href="https://play.google.com/store/apps/details?id=com.ubercab" target="_blank" class="app-link app-link-android">Android</a>
+                        <a href="https://apps.apple.com/ar/app/uber-pide-un-viaje/id368677368" target="_blank" class="app-link app-link-ios">iOS</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+            <p>Coordinación General: Prof. Sebastián Poberezny | Viaje de Estudios EVA 2026</p>
+        </footer>
 
     </div>
-</section>
+
+    <script>
+        let userLocationUrl = "";
+
+        function getGeoLocation() {
+            const statusNode = document.getElementById("locationStatus");
+            if (!navigator.geolocation) {
+                statusNode.innerText = "❌ Tu navegador no soporta geolocalización.";
+                return;
+            }
+
+            statusNode.innerText = "⏳ Obteniendo ubicación GPS...";
+
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    userLocationUrl = `https://maps.google.com/?q=${lat},${lon}`;
+                    statusNode.innerText = "✅ Ubicación GPS lista para adjuntar.";
+                },
+                (error) => {
+                    statusNode.innerText = "⚠️ No se pudo obtener GPS (Permiso denegado). Se enviará sin ubicación.";
+                }
+            );
+        }
+
+        function sendAlert(e) {
+            e.preventDefault();
+            const student = document.getElementById("studentSelect").value;
+            const details = document.getElementById("planDetails").value;
+
+            if (!student) {
+                alert("Por favor selecciona tu nombre.");
+                return;
+            }
+
+            let msg = `🚨 *NOTIFICACIÓN DE PLAN ALTERNATIVO / VIAJE EVA 2026*\n\n`;
+            msg += `👤 *Alumno:* ${student}\n`;
+            msg += `📝 *Detalles / Destino:* ${details}\n`;
+
+            if (userLocationUrl) {
+                msg += `📍 *Ubicación GPS Actual:* ${userLocationUrl}\n`;
+            }
+
+            // Coordinadores
+            const coords = [
+                { name: "Sebastián (Coordinador General)", phone: "5493624547262" },
+                { name: "Julieta (Ivania Turismo)", phone: "5493624596240" },
+                { name: "Prof. David", phone: "5493624778750" }
+            ];
+
+            // Abrir al primer coordinador (Sebastián)
+            const mainUrl = `https://wa.me/${coords[0].phone}?text=${encodeURIComponent(msg)}`;
+            window.open(mainUrl, '_blank');
+
+            alert(`Mensaje preparado para ${coords[0].name}.\nRecuerda enviar también la copia a Julieta y Prof. David.`);
+        }
+    </script>
+</body>
+</html>
