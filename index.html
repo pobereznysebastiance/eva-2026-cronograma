@@ -15,7 +15,6 @@
             --accent-pink: #ff0080;
             --text-main: #f1f5f9;
             --text-muted: #94a3b8;
-            --border-glow: rgba(0, 242, 254, 0.2);
             --border-card: rgba(255, 255, 255, 0.08);
         }
 
@@ -39,9 +38,9 @@
 
         header {
             text-align: center;
-            padding: 50px 20px 30px;
+            padding: 40px 20px 25px;
             border-bottom: 1px solid var(--border-card);
-            background: rgba(10, 11, 16, 0.8);
+            background: rgba(10, 11, 16, 0.85);
             backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
@@ -59,28 +58,403 @@
             border-radius: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
             background: linear-gradient(135deg, #ffffff 0%, var(--accent-cyan) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         p.subtitle {
             color: var(--text-muted);
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin: 35px 0 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 22px;
+            background: var(--accent-cyan);
+            border-radius: 2px;
+        }
+
+        .hotel-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .hotel-info h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .hotel-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .btn-map {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--accent-cyan), #00c6ff);
+            color: #000;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .day-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        .day-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem;
+            color: var(--accent-cyan);
+        }
+
+        .day-location {
+            font-size: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3px 8px;
+            border-radius: 6px;
+            color: var(--text-muted);
+        }
+
+        .event-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .event-item {
+            display: flex;
+            gap: 12px;
+            font-size: 0.9rem;
+        }
+
+        .event-time {
+            color: var(--accent-pink);
+            font-weight: 600;
+            min-width: 95px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .studios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .studio-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .studio-name {
+            font-size: 0.8rem;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .game-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            color: #fff;
+            margin: 4px 0 10px;
+        }
+
+        .topics-list {
+            list-style: none;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .topics-list li {
+            margin-bottom: 4px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .topics-list li::before {
+            content: '•';
+            color: var(--accent-pink);
+            position: absolute;
+            left: 0;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-card);
+            padding-top: 25px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.7rem; }
+            .hotel-card { flex-direction: column; align-items: flex-start; }
+            .btn-map { width: 100%; justify-content: center; }
+            .event-item { flex-direction: column; gap: 2px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <span class="badge">Delegación Estudiantil 2026</span>
+        <h1>Viaje EVA 2026</h1>
+        <p class="subtitle">Guía de itinerarios, sedes y actividades para el viaje de estudios</p>
+    </header>
+
+    <div class="container">
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <h3>📍 O2 Hotel Buenos Aires</h3>
+                <p>Junín 357, Balvanera, CABA (Punto base de alojamiento)</p>
+            </div>
+            <a href="https://share.google/ctQohSfyptkFnvaeU" target="_blank" class="btn-map">
+                🗺️ Ver en Google Maps
+            </a>
+        </div>
+
+        <h2 class="section-title">Cronograma Oficial de Actividades</h2>
+        <div class="timeline">
+
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-title">Martes 20/10 – Salida</span>
+                    <span class="day-location">Corrientes → CABA</span>
+                </div>
+                <ul class="event-list">
+                    <li class="event-item">
+                        <span class="event-time">Horario a conf.</span>
+                        <span class="event-desc">Salida en colectivo desde el Campus UCP Corrientes con destino a Buenos Aires.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-title">Miércoles 21/10 – Sede BIG</span>
+                    <span class="day-location">Barracas (Algarrobo 1041)</span>
+                </div>
+                <ul class="event-list">
+                    <li class="event-item">
+                        <span class="event-time">Mañana</span>
+                        <span class="event-desc">Arribo a CABA y Check-in en Hotel O2.</span>
+                    </li>
+                    <li class="event-item">
+                        <span class="event-time">10:00 hs</span>
+                        <span class="event-desc">Traslado en colectivo desde Hotel O2 hacia Sede BIG.</span>
+                    </li>
+                    <li class="event-item">
+                        <span class="event-time">11:00 - 19:00 hs</span>
+                        <span class="event-desc">Unity Dev Day, Talent Day (portafolios) y EVA Talks.</span>
+                    </li>
+                    <li class="event-item">
+                        <span class="event-time">19:30 hs</span>
+                        <span class="event-desc">Regreso en colectivo hacia el Hotel O2.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-title">Jueves 22/10 – Sede BAFerial</span>
+                    <span class="day-location">Costanera Norte (Av. Costanera 1221)</span>
+                </div>
+                <ul class="event-list">
+                    <li class="event-item">
+                        <span class="event-time">09:00 hs</span>
+                        <span class="event-desc">Traslado desde Hotel O2 hacia Sede BAFerial.</span>
+                    </li>
+                    <li class="event-item">
+                        <span class="event-time">10:00 hs</span>
+                        <span class="event-desc">Ceremonia de Apertura Oficial de EVA 2026.</span>
+                    </li>
+                    <li class="event-item">
+                        <span class="event-time">11:00 - 19:00 hs</span>
+                        <span class="event-desc">EVA Play Special Collection (Pabellón A), EVA Talks y B2B Networking.</span>
+                    </li>
+                    <li class="event-item">
+                        <span class="event-time">19:30 hs</span>
+                        <span class="event-desc">Regreso al Hotel O2.</span>
+                    </li>
+                    <li class="event-item">
+                        <span class="event-time">20:00 - 02:00 hs</span>
+                        <span class="event-desc">Evento nocturno asociado: The MIX (Optativo).</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-title">Viernes 23/10 – Sede BAFerial</span>
+                    <span class="day-location">Costanera Norte</span>
+                </div>
+                <ul class="event-list">
+                    <li class="event-item">
+                        <span class="event-time">09:30 hs</span>
+                        <span class="event-desc">Traslado desde Hotel O2 hacia BAFerial.</span>
+                    </li>
+                    <li class="event-item">
+                        <span class="event-time">11:00 - 19:00 hs</span>
+                        <span class="event-desc">Apertura de EVA Play General (Pabellones A y B), conferencias de arte, UI/UX y programación.</span>
+                    </li>
+                    <li class="event-item">
+                        <span class="event-time">19:30 hs</span>
+                        <span class="event-desc">Regreso al Hotel O2.</span>
+                    </li>
+                    <li class="event-item">
+                        <span class="event-time">21:00 - 03:00 hs</span>
+                        <span class="event-desc">Evento nocturno: La Pixel (XR + Música en vivo).</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-title">Sábado 24/10 – Cierre y Regreso</span>
+                    <span class="day-location">BAFerial → Corrientes</span>
+                </div>
+                <ul class="event-list">
+                    <li class="event-item">
+                        <span class="event-time">Mañana</span>
+                        <span class="event-desc">Check-out en Hotel O2 (equipaje guardado en el colectivo).</span>
+                    </li>
+                    <li class="event-item">
+                        <span class="event-time">11:00 - 18:30 hs</span>
+                        <span class="event-desc">Recorrido final por pabellones y testeos.</span>
+                    </li>
+                    <li class="event-item">
+                        <span class="event-time">18:30 - 20:30 hs</span>
+                        <span class="event-desc">Ceremonia de Cierre y entrega de EVA Awards.</span>
+                    </li>
+                    <li class="event-item">
+                        <span class="event-time">21:00 hs approx.</span>
+                        <span class="event-desc">Salida del colectivo de regreso a Corrientes.</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <h2 class="section-title">Estudios Indie Seleccionados para Visitar</h2>
+        <div class="studios-grid">
+
+            <div class="studio-card">
+                <span class="studio-name">Comfy Games</span>
+                <h3 class="game-title">Quantum Echoes</h3>
+                <ul class="topics-list">
+                    <li>Diseño de niveles e itinerario sci-fi</li>
+                    <li>Narrativa y pacing del proyecto</li>
+                </ul>
+            </div>
+
+            <div class="studio-card">
+                <span class="studio-name">Creative D-Ploy</span>
+                <h3 class="game-title">Honeymoon to Hell</h3>
+                <ul class="topics-list">
+                    <li>Dirección de arte y paleta de color</li>
+                    <li>Mecánicas de combate roguelite</li>
+                </ul>
+            </div>
+
+            <div class="studio-card">
+                <span class="studio-name">Abstract Digital</span>
+                <h3 class="game-title">Not To Be Forgotten</h3>
+                <ul class="topics-list">
+                    <li>Estilo visual y modelado 3D estilizado</li>
+                    <li>Feedback visual e interfaz de usuario</li>
+                </ul>
+            </div>
+
+            <div class="studio-card">
+                <span class="studio-name">BELS Games</span>
+                <h3 class="game-title">Parasomnia: No REM</h3>
+                <ul class="topics-list">
+                    <li>Ambientación de terror e iluminación</li>
+                    <li>Diseño de sonido y atmósfera inmersiva</li>
+                </ul>
+            </div>
+
+            <div class="studio-card">
+                <span class="studio-name">Symbio Studio</span>
+                <h3 class="game-title">Gaucho: Subway Escape</h3>
+                <ul class="topics-list">
+                    <li>Diseño de personajes 2D/3D</li>
+                    <li>Mecánicas de sigilo y escape</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>Coordinación Académica – Prof. Sebastián Poberezny</p>
+            <p>Exposición de Videojuegos Argentina 2026</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
