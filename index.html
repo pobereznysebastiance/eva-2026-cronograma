@@ -333,6 +333,34 @@
             opacity: 0.9;
         }
 
+        /* Modal / Asistente de Envío a Múltiples Coordinadores */
+        .send-status-box {
+            display: none;
+            margin-top: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--accent-pink);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .send-status-box p {
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .btn-next-send {
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
         /* Grid de Estudios y Noches */
         .studios-grid, .night-grid {
             display: grid;
@@ -696,9 +724,17 @@
                 <input type="text" id="locationUrl" class="form-input" placeholder="El enlace de tu ubicación aparecerá aquí..." readonly>
             </div>
 
-            <button type="button" onclick="sendWhatsAppNotice()" class="btn-whatsapp">
-                📱 🚨 Enviar Reporte por WhatsApp
+            <button type="button" onclick="startWhatsAppSending()" class="btn-whatsapp">
+                📱 🚨 Enviar Reporte a la Coordinación
             </button>
+
+            <!-- Asistente de Envío Secuencial -->
+            <div id="statusBox" class="send-status-box">
+                <p id="statusText">Paso 1 de 3: Reporte enviado a Prof. Sebastián.</p>
+                <button type="button" id="nextSendBtn" class="btn-next-send" onclick="sendNext()">
+                    Enviar copia a Julieta (Ivania Turismo) ➔
+                </button>
+            </div>
         </div>
 
         <!-- Estudios Indie -->
@@ -791,7 +827,7 @@
 
     </div>
 
-    <!-- Script de Lógica para el Reporte de Plan Alternativo y Geolocalización -->
+    <!-- Script de Lógica para el Reporte de Plan Alternativo, Geolocalización y Envío Múltiple -->
     <script>
         const studentsList = [
             "Acevedo Jose Julian", "Alegre Lionel Nicolas", "Alvarenga Karen", "Alvarez Jose Ignacio",
@@ -811,10 +847,19 @@
             "Vicedo Catalina", "Zabala Meza Eliana"
         ];
 
+        let currentStep = 0;
+        let generatedMessage = "";
+
+        const contacts = [
+            { name: "Prof. Sebastián", phone: "5493624547262" },
+            { name: "Julieta (Ivania Turismo)", phone: "5493624596240" },
+            { name: "Profe David", phone: "5493624778750" }
+        ];
+
         function renderStudents() {
             const container = document.getElementById("studentsList");
             container.innerHTML = "";
-            studentsList.forEach((student, index) => {
+            studentsList.forEach((student) => {
                 const label = document.createElement("label");
                 label.className = "student-option";
                 label.innerHTML = `
@@ -854,7 +899,7 @@
             }
         }
 
-        function sendWhatsAppNotice() {
+        function buildMessage() {
             const selected = Array.from(document.querySelectorAll(".student-checkbox:checked")).map(cb => cb.value);
             const destination = document.getElementById("destination").value.trim();
             const returnTime = document.getElementById("returnTime").value.trim();
@@ -862,15 +907,15 @@
 
             if (selected.length === 0) {
                 alert("Por favor selecciona al menos a una persona del grupo.");
-                return;
+                return null;
             }
             if (!destination) {
                 alert("Por favor ingresa el destino o actividad proyectada.");
-                return;
+                return null;
             }
             if (!returnTime) {
                 alert("Por favor indica el horario estimado de regreso.");
-                return;
+                return null;
             }
 
             let message = `🚨 *AVISO DE PLAN ALTERNATIVO - VIAJE EVA 2026*\n\n`;
@@ -886,9 +931,37 @@
             }
 
             message += `\n_Enviado desde la Web Oficial de la Delegación._`;
+            return message;
+        }
 
-            const phone = "5493624547262";
-            const encodedUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        function startWhatsAppSending() {
+            generatedMessage = buildMessage();
+            if (!generatedMessage) return;
+
+            currentStep = 0;
+            openWhatsApp(contacts[0].phone);
+
+            document.getElementById("statusBox").style.display = "block";
+            document.getElementById("statusText").innerText = `✅ Paso 1 de 3: Iniciado envío a ${contacts[0].name}.`;
+            document.getElementById("nextSendBtn").innerText = `Enviar copia a ${contacts[1].name} ➔`;
+            currentStep = 1;
+        }
+
+        function sendNext() {
+            if (currentStep === 1) {
+                openWhatsApp(contacts[1].phone);
+                document.getElementById("statusText").innerText = `✅ Paso 2 de 3: Copia enviada a ${contacts[1].name}.`;
+                document.getElementById("nextSendBtn").innerText = `Enviar copia a ${contacts[2].name} ➔`;
+                currentStep = 2;
+            } else if (currentStep === 2) {
+                openWhatsApp(contacts[2].phone);
+                document.getElementById("statusText").innerText = `🎉 ¡Listo! Notificación enviada exitosamente a toda la coordinación.`;
+                document.getElementById("nextSendBtn").style.display = "none";
+            }
+        }
+
+        function openWhatsApp(phone) {
+            const encodedUrl = `https://wa.me/${phone}?text=${encodeURIComponent(generatedMessage)}`;
             window.open(encodedUrl, "_blank");
         }
 
